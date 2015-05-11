@@ -1,6 +1,6 @@
 (function() {
-  
-  var app = angular.module('prolibertas', ['ui.router', 'templates', 'prolibertas-person', 'prolibertas-history', 'prolibertas-user', 'prolibertas-alert', 'prolibertas-service']);
+
+  var app = angular.module('prolibertas', ['ui.router', 'templates', 'prolibertas-person', 'prolibertas-history', 'prolibertas-user', 'prolibertas-alert', 'prolibertas-service', 'prolibertas-family']);
 
   // Config
   app.config(function($urlRouterProvider, $stateProvider, $httpProvider) {
@@ -34,14 +34,14 @@
       url: "/usuarios/:id/editar",
       templateUrl: "usuarios-nuevo.html",
       controller: "UserFormController",
-      controllerAs: "userFormCtrl"    
+      controllerAs: "userFormCtrl"
     })
 
     .state("usuario.perfil", {
       url: "/perfil",
       templateUrl: "perfil.html",
       controller: "UserFormController",
-      controllerAs: "userFormCtrl"    
+      controllerAs: "userFormCtrl"
     })
 
     .state("personas", {
@@ -70,7 +70,7 @@
       url: "/personas/:id/editar",
       templateUrl: "persona-nueva.html",
       controller: "PersonFormController",
-      controllerAs: "personCtrl"    
+      controllerAs: "personCtrl"
     })
 
     .state("persona.alertas", {
@@ -124,7 +124,7 @@
          menupersona:{
            templateUrl: "historias.html",
            controller: "HistoriesController",
-           controllerAs: "historiesCtrl" 
+           controllerAs: "historiesCtrl"
          }
         }
       })
@@ -135,7 +135,7 @@
          menupersona:{
             templateUrl: "form_historia.html",
             controller: "HistoryFormController",
-            controllerAs: "historyFormCtrl" 
+            controllerAs: "historyFormCtrl"
          }
         }
       })
@@ -146,7 +146,7 @@
           menupersona:{
             templateUrl: "historia.html",
             controller: "HistoryController",
-            controllerAs: "historyCtrl"  
+            controllerAs: "historyCtrl"
           }
         }
       })
@@ -157,7 +157,7 @@
           menupersona:{
             templateUrl: "form_historia.html",
             controller: "HistoryFormController",
-            controllerAs: "historyFormCtrl"  
+            controllerAs: "historyFormCtrl"
           }
         }
       })
@@ -167,6 +167,20 @@
       templateUrl: "services.html",
       controller: "ServicesController",
       controllerAs: "servicesCtrl"
+     })
+
+     .state("familias", {
+       url: "/familias?alertaCreado&alertaBorrado",
+       templateUrl:  "familias.html",
+       controller:   "FamilyController",
+       controllerAs: "familyCtrl"
+     })
+
+     .state("familiasNueva", {
+       url: "/familias/nueva",
+       templateUrl: "familia-nueva.html",
+       controller: "FamilyController",
+       controllerAs: "familyCtrl"
      });
   });
 
@@ -180,6 +194,6 @@
     // Obtener el usuario logeado
     $rootScope.currentUser = {};
     $http.get('/current.json').success(function(data) { $rootScope.currentUser = data.user; });
-    
+
   });
 })();
