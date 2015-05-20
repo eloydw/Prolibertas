@@ -20,7 +20,7 @@
             </span>
           </div>
         </div>
-        <a id="createFamily" ui-sref="familiasNueva" class="btn listfamilies__boton col-md-1 col-sm-1 col-md-offset-3 col-sm-offset-3 col-xs-1"><img src="/assets/add-person.svg"></a>
+        <a id="createFamily" ui-sref="familiasNueva" class="btn listfamilies__boton col-md-1 col-sm-1 col-md-offset-3 col-sm-offset-3 col-xs-1"><img src="/assets/add-family.svg"></a>
       </form>
     </div>
   </div>
@@ -53,18 +53,18 @@
         <td class="listfamilies__centrado hidden-xs">{{family.children}}</td>
         <td class="listfamilies__centrado hidden-xs">{{family.menu}}</td>
         <td class="listfamilies__centrado">
-          <input id="comida_{{person.id}}" ng-model="person.used_services_of_today.comida"
-          ng-change="peopleCtrl.changeCheckbox(person, peopleCtrl.getService('comida'))"
+          <input id="comida_{{family.id}}" ng-model="family.used_services_of_today.comida"
+          ng-change="peopleCtrl.changeCheckbox(family, peopleCtrl.getService('comida'))"
           type="checkbox">
         </td>
         <td class="listfamilies__centrado">
-          <input id="ropa_{{person.id}}" ng-model="person.used_services_of_today.ropa"
-          ng-change="peopleCtrl.changeCheckbox(person, peopleCtrl.getService('ropa'))"
+          <input id="ropa_{{family.id}}" ng-model="family.used_services_of_today.ropa"
+          ng-change="peopleCtrl.changeCheckbox(family, peopleCtrl.getService('ropa'))"
           type="checkbox">
         </td>
         <td class="listfamilies__centrado">
-          <input id="ducha_{{person.id}}" ng-model="person.used_services_of_today.ducha"
-          ng-change="peopleCtrl.changeCheckbox(person, peopleCtrl.getService('ducha'))"
+          <input id="ducha_{{family.id}}" ng-model="family.used_services_of_today.ducha"
+          ng-change="peopleCtrl.changeCheckbox(family, peopleCtrl.getService('ducha'))"
           type="checkbox">
         </td>
         <td class="listfamilies__centrado hidden-xs"><i class="glyphicon glyphicon-plus-sign listfamilies__azul"></td>
